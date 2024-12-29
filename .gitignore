@@ -1,0 +1,6 @@
+# .gitignore
+node_modules
+*.log
+Dockerfile
+dist
+out

@@ -1,0 +1,55 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Electron Code Server</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            border: none;
+            outline: none;
+        }
+
+        #loading {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            font-size: 4rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="repo-picker">
+        <h1>Pick a GitHub Repo</h1>
+        <ul id="repo-list">
+            <li data-repo="https://github.com/sindresorhus/awesome">Awesome</li>
+            <li data-repo="https://github.com/expressjs/express">Express</li>
+            <li data-repo="https://github.com/facebook/react">React</li>
+            <!-- Add more if you want -->
+        </ul>
+        <button id="start-btn">Start Code Server</button>
+    </div>
+
+    <div id="code-server-iframe-container"></div>
+
+    <div id="loading" style="display: none;">
+        <h1>Loading...</h1>
+    </div>
+
+    <script src="renderer.js"></script>
+</body>
+
+</html>
