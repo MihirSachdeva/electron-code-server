@@ -13,6 +13,13 @@
             box-sizing: border-box;
             border: none;
             outline: none;
+            height: 100vh;
+            width: 100vw;
+            overflow: hidden;
+        }
+
+        #code-server-iframe-container iframe {
+            border: none;
         }
 
         #loading {
@@ -38,8 +45,10 @@
             <li data-repo="https://github.com/sindresorhus/awesome">Awesome</li>
             <li data-repo="https://github.com/expressjs/express">Express</li>
             <li data-repo="https://github.com/facebook/react">React</li>
+            <li data-repo="https://github.com/mwangiKibui/node.js-simple-api.git">NodeJS Simple API</li>
             <!-- Add more if you want -->
         </ul>
+        <input type="text" id="repo-url" placeholder="Enter HTTPS GitHub Repo URL" />
         <button id="start-btn">Start Code Server</button>
     </div>
 

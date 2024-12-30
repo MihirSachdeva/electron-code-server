@@ -3,6 +3,7 @@
 const repoList = document.getElementById('repo-list');
 let selectedRepo = null;
 const loadingDiv = document.getElementById('loading');
+const repoUrlInput = document.getElementById('repo-url');
 
 // Highlight selected repo
 repoList.addEventListener('click', (event) => {
@@ -15,19 +16,20 @@ repoList.addEventListener('click', (event) => {
         // Highlight new selection
         li.style.backgroundColor = '#ddd';
         selectedRepo = li.dataset.repo;
+        repoUrlInput.value = ''; // Clear the input field
     }
 });
 
 document.getElementById('start-btn').addEventListener('click', async () => {
-    if (!selectedRepo) {
-        alert('Please select a repository first!');
+    const repoUrl = repoUrlInput.value || selectedRepo;
+    if (!repoUrl) {
+        alert('Please select a repository or enter a URL first!');
         return;
     }
 
     console.log('Starting container with repo:', selectedRepo);
     loadingDiv.style.display = 'block';
-    console.log('oh loadingDiv OPENED 2');
-    const result = await window.electronAPI.startContainer(selectedRepo);
+    const result = await window.electronAPI.startContainer(repoUrl);
 
     if (result.success) {
         alert(result.message);

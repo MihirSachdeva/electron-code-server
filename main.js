@@ -1,5 +1,5 @@
 // main.js
-const { app, BrowserWindow, dialog, BrowserView, ipcMain } = require("electron");
+const { app, BrowserWindow, dialog, ipcMain } = require("electron");
 const { exec } = require("child_process");
 const path = require("path");
 const http = require('http');
@@ -141,6 +141,7 @@ function runCommand(cmd) {
         });
     });
 }
+
 app.whenReady().then(createWindow);
 
 app.on("will-quit", async (e) => {
